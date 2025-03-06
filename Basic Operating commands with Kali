@@ -1,0 +1,28 @@
+Operating System: Linux
+Machine: Kali
+
+Basic Commands to use:
+cd: Change Directory; Moves between folders
+mv -v: would output a message confirming the move to the said destination
+mv: moves files or directories to a different destination. If a similar folder exists there, it overwrites it.
+mv -i: asks before overwriting the file
+cat: lists content of the file
+cat -n example.log example2.log
+
+To save the output we can use redirection to save the output inside a file :
+cat -n example.log example2.log > access_log.log
+
+Use the head command to show the first 10 lines: head access_log.log
+Use the tail command to show the last 10 lines: tail access_log.log
+Add information to the syslog located in /var/log/syslog by :
+logger “any text”
+
+Use the Grep command to filter the output based on one value :
+grep -i kali /var/log/syslog
+
+Filter the log file for words containing p,l,c :
+grep [plc] access_log.log
+
+Filter the output of the log for lines containing IP addresses:
+grep -E "[^^][0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}" webserver.log
+
